@@ -1,21 +1,190 @@
-
-# How to use calculator:
-1. Run `python calculate.py`
-2. Enter the figure name. Available are Circle, Square.
-3. Enter the function: Area or Perimeter.
-4. Enter figure sizes. Radius for circle, one side for square.
-5. Get the answer!
-
 # Math formulas
 ## Area
-- Circle: `S = πR²`
-- Rectangle: `S = ab`
-- Square: `S = a²`
-- Triangle: `S = sqrt(p * (p-a) * (p-b) * (p-c))` where p is semiperimeter
+- Circle: S = πR²
+- Rectangle: S = ab
+- Square: S = a²
 
-## Perimeter
-- Circle: `P = 2πR`
-- Rectangle: `P = 2a + 2b`
-- Square: `P = 4a`
-- Triangle: `P = a + b + c`
+## __Perimeter__
+- Circle: P = 2πR
+- Rectangle: P = 2a + 2b
+- Square: P = 4a
 
+
+# Discription
+
+## File circle.py
+
+- import math - Эта строка импортирует math. math предоставляет доступ к математическим функциям и константам, таким как число Пи (math.pi).
+
+- def area(r): - Определяет функцию под названием area, которая принимает r (радиус круга). r - это переменная, которая хранит значение радиуса.
+
+- return math.pi * r * r - math.pi - это константа, представляющая число Пи. r * r - это радиус умноженный на самого себя. return возвращает результат вычисления функции area.
+
+- def perimeter(r): - Определяет функцию perimeter, которая принимает r (радиус круга).
+
+- return 2 * math.pi * r - Эта строка выполняет вычисление периметра круга. 2 * math.pi * r.
+
+
+## File square.py
+
+- def area(a): - Определяет функцию area, которая принимает a.
+
+- return a * a -  Вычисляет квадрат числа a. return возвращает результат вычисления из функции area.
+
+- def perimeter(a): -  Определяет функцию с именем perimeter, которая также принимает один аргумент a.
+
+- return 4 * a - Возвращает 4 умноженное на a. 
+
+## File triangle.py
+
+- def area(a, b, c): - Определяет функцию с именем area, которая принимает три аргумента: a, b и c.
+
+- return (a + b + c) / 2 - Вычисляет сумму трех чисел a, b и c (a + b + c), а затем делит результат на 2. return возвращает результат вычисления из функции area.
+
+- def perimeter(a, b, c): - Определяет функцию с именем perimeter, которая также принимает три аргумента: a, b и c.
+
+-  return a + b + c - Вычисляет сумму трех чисел a, b и c (a + b + c). return возвращает результат вычисления из функции perimeter.
+
+## File calculate.py
+
+- import circle, import square - Эти строки импортируют модули circle и square, которые, предположительно, содержат функции для вычисления периметра и площади соответствующих фигур.
+
+- figs = ['circle', 'square'] - Создает список доступных фигур (circle и square).
+
+- funcs = ['perimeter', 'area'] -  Создает список доступных функций (perimeter и area).
+
+- sizes = {} - Создает пустой словарь sizes, который в будущем, возможно, будет использоваться для хранения информации о размерах фигур.
+
+-  Определяет функцию calc, которая принимает три аргумента:
+
+- fig -  Название фигуры (например, circle).
+
+- func -  Название функции (например, perimeter).
+
+- size - Список значений, необходимых для вычисления (например, радиус круга или сторона квадрата).
+
+- assert fig in figs -  Проверяет, существует ли фигура fig в списке figs. Если нет, то программа завершится с ошибкой.
+
+- assert func in funcs -  Проверяет, существует ли функция func в списке funcs. Если нет, то программа завершится с ошибкой.
+
+- result = eval(f'{fig}.{func}(*{size})') - Вычисляет результат функции func из модуля fig. 
+
+- f'{fig}.{func}(*{size})'  - это строка, которая формируется в зависимости от значений fig, func и size.
+
+- eval() -  выполняет строку как Python-код,  в результате чего вызывается функция func из модуля fig с передачей значений size.
+
+- print(f'{func} of {fig} is {result}') - Выводит на экран результат вычислений.
+
+- if name == "main": - Этот блок кода выполняется только тогда, когда файл запущен как основная программа. 
+
+- func = '' -  Инициализирует переменную func пустой строкой.
+
+- fig = '' -  Инициализирует переменную fig пустой строкой.
+
+- size = list() -  Создает пустой список size.
+
+- while fig not in figs: -  Цикл повторяется, пока пользователь не введет корректное название фигуры.
+
+- fig = input(f"Enter figure name, avaliable are {figs}:\n") - Запрашивает у пользователя название фигуры и сохраняет его в переменную fig
+
+- while func not in funcs: - Цикл повторяется, пока пользователь не введет корректное название функции.
+
+- func = input(f"Enter function name, avaliable are {funcs}:\n"): Запрашивает у пользователя название функции и сохраняет его в переменную func.
+
+- while len(size) != sizes.get(f"{func}-{fig}", 1) - Цикл повторяется, пока пользователь не введет корректное количество размеров для выбранной фигуры и функции. 
+
+- sizes.get(f"{func}-{fig}", 1)  -  пытается получить значение из словаря sizes по ключу  f"{func}-{fig}".
+
+- size = list(map(int, input("Input figure sizes separated by space, 1 for circle and square\n").split(' '))) - Запрашивает у пользователя размеры фигуры, разделенные пробелами, и преобразует их в целые числа.
+
+- calc(fig, func, size) -  Вызывает функцию calc с полученными от пользователя данными.
+
+
+# Описание функций и примеры их вызовов
+
+# Area
+
+## Описание
+Функция вычисляет площадь круга
+
+## Параметры
+**r** - принимает значение радиуса круга
+
+## Возвращает значение 
+Возвращает площадь круга
+
+## Примеры
+
+  >area(5)
+  >> 78.53981633974483
+  
+# perimeter
+
+## Описание
+
+Функция вычисляет периметр круга
+
+## Параметры
+ **r** - принимает значение радиуса круга
+ 
+## Возвращает значение 
+
+Возвращает периметр круга
+
+## Примеры
+
+  >perimeter(5)
+  >> 31.415955359
+  
+# Area
+
+## Описание
+
+Функция вычисляет площадь квадрата
+
+## Параметры
+
+**a** - принимает значение стороны квадрата
+
+## Возвращает значение 
+
+Возвращает площадь квадрата
+
+## Примеры
+
+  >area(5)
+  >> 25
+  
+# perimeter
+
+## Описание
+
+Функция вычисляет периметр квадрата
+
+## Параметры
+
+**r** - принимает значение стороны квадрата
+
+## Возвращает значение 
+
+Возвращает периметр квадрата
+
+## Примеры
+
+ >perimeter(5)
+  > >20
+   
+
+  
+#История изменения проекта с хешами коммитов
+
+Wed Oct 30 02:29:17 2024 +0300|a151bce|Nikita Belov <n_belov@icloud.com>|Added docs to calculate.py
+Wed Oct 30 02:28:55 2024 +0300|6d85e84|Nikita Belov <n_belov@icloud.com>|Added docs to circle.py
+Wed Oct 30 02:28:35 2024 +0300|8f2aba7|Nikita Belov <n_belov@icloud.com>|Added docs to triangle.py
+Wed Oct 30 02:28:13 2024 +0300|f2fc729|Nikita Belov <n_belov@icloud.com>|Added docs to square.py
+Tue Mar 30 18:02:23 2021 +0300|b5b0fae|Daniil.K <dlkay@yandex.ru>|Update docs for calculate.py
+Tue Mar 30 17:57:42 2021 +0300|d76db2a|Daniil.K <dlkay@yandex.ru> |Add calculate.py
+Fri Mar 26 14:52:26 2021 +0300|51c40eb|smartiqa <info@smartiqa.ru>|Doc updated for triangle
+Fri Mar 26 14:48:39 2021 +0300|d080c78|smartiqa <info@smartiqa.ru>|Triangle added
+Thu Mar 4 14:55:29 2021 +0300|d078c8d|smartiqa <info@smartiqa.ru>|Docs added
+Thu Mar 4 14:54:08 2021 +0300|8ba9aeb|smartiqa <info@smartiqa.ru>|Circle and square added
