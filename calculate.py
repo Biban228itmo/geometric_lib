@@ -21,13 +21,13 @@ def calc(fig, func, size):
     key = f'{fig}-{func}'
     args = sizes.get(key)
     assert args is not None
-    assert len(size) == args, 
+    assert len(size) == args
 
-    assert all(s >= 0 for s in size), 
+    assert all(s >= 0 for s in size)
 
     if fig == "triangle":
         a, b, c = size
-        assert a + b > c and a + c > b and b + c > a,
+        assert a + b > c and a + c > b and b + c > a
 
     result = eval(f'{fig}.{func}(*{size})')
     return result
