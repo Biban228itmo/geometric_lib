@@ -1,17 +1,18 @@
 import unittest
-from math import *
+from math import math
 from circle import area, perimeter
+
 
 class TestCircle(unittest.TestCase):
     def test_area(self):
         radius = 1
         res = area(radius)
-        self.assertEqual(res,pi)
+        self.assertEqual(res, pi)
 
     def test_perimeter(self):
         radius = 1
         res = perimeter(radius)
-        self.assertEqual(res,2 * pi)
+        self.assertEqual(res, 2 * pi)
 
     def test_area_zero(self):
         radius = 0
