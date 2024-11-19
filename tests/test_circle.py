@@ -2,6 +2,7 @@ import unittest
 from math import pi
 from circle import area, perimeter
 
+
 class TestCircle(unittest.TestCase):
     def test_area(self):
         radius = 1
@@ -32,6 +33,7 @@ class TestCircle(unittest.TestCase):
         radius = -1
         with self.assertRaises(AssertionError):
             perimeter(radius)
+
 
 if __name__ == '__main__':
     unittest.main()
