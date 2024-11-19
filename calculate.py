@@ -13,20 +13,21 @@ sizes = {
     'triangle-perimeter': 3
 }
 
+
 def calc(fig, func, size):
     assert fig in figs, "Invalid figure"
     assert func in funcs, "Invalid function"
 
     key = f'{fig}-{func}'
     args = sizes.get(key)
-    assert args is not None, "Invalid size key"
-    assert len(size) == args, "Invalid size length"
+    assert args is not None,
+    assert len(size) == args, 
 
-    assert all(s >= 0 for s in size), "Sizes must be non-negative"
+    assert all(s >= 0 for s in size), 
 
     if fig == "triangle":
         a, b, c = size
-        assert a + b > c and a + c > b and b + c > a, "Triangle inequality violated"
+        assert a + b > c and a + c > b and b + c > a,
 
     result = eval(f'{fig}.{func}(*{size})')
     return result
