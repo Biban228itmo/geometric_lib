@@ -20,7 +20,7 @@ def calc(fig, func, size):
 
     key = f'{fig}-{func}'
     args = sizes.get(key)
-    assert args is not None,
+    assert args is not None
     assert len(size) == args, 
 
     assert all(s >= 0 for s in size), 
